@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/bootstrap.min.4.3.1.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.4.3.1.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style-itemslist.css">
+  <title>Flipkart: All Items</title>
+</head>
+
+<body style="background-color: rgba(128,128,128,0.1);">
+    <div id= container>
+        <!-- Header with flipkart logo -->
+	<div class="card" style="background-color: rgba(83, 51, 249, 1); height: 55px; border-radius: 0 !important;">
+		<div style="margin-left: 410px;">
+		  <img class="card-img-bottom" id="logo" src="images/Extras/logo.png" style="width: 110px; height: 46px;"> 
+		</div>
+		<!-- Add search and others -->
+	</div>
+	
+	<div class="card" style="height: 45px;">
+	  <!-- Add categories -->
+	</div>
+
+    <!-- Filters -->
+	<div id="filters" class="card" style="float: left;margin-left: 10px;height: 1200px; width: 250px;margin-right:5px;margin-top: 10px; ">
+	<section class="filter1_1 filter1_2">
+         <div class="filter1_3">
+          <span>Filters</span>
+        </div> 
+        </section>
+        
+        <div class="filter2_1">
+          <section class="filter2_2">
+              <div class="filter2_3">
+                <span>CATEGORIES</span>
+              </div>
+          </section>
+      </div>
+	
+	<section class="filter3_1">
+            <div class="filter3_2">
+                <div class="filter3_3">
+                    <span>Price</span>
+                </div>
+            </div>
+            
+        <div class="_3Uy12X">
+            <div class="_1qKb_B">
+                <select class="fPjUPw">
+                    <option value="Min" class="OMc8Rd">Min</option>
+                    <option value="500" class="OMc8Rd">₹500</option>
+                    <option value="1000" class="OMc8Rd">₹1000</option>
+                    <option value="1500" class="OMc8Rd">₹1500</option>
+                    <option value="2000" class="OMc8Rd">₹2000</option>
+                    <option value="3000" class="OMc8Rd">₹3000</option>
+                </select></div><div class="_2LchWD">to</div>
+                <div class="_1YoBfV">
+                    <select class="fPjUPw">
+                        <option value="Max" class="OMc8Rd">Max</option>
+                        <option value="500" class="OMc8Rd">₹500</option>
+                        <option value="1000" class="OMc8Rd">₹1000</option>
+                        <option value="1500" class="OMc8Rd">₹1500</option>
+                        <option value="2000" class="OMc8Rd">₹2000</option>
+                        <option value="3000" class="OMc8Rd">₹3000</option>
+                        <option value="Max" class="OMc8Rd">₹3000+</option>
+                    </select>
+                </div>
+            </div>
+            </section>
+	
+	<section class="filter3_1">
+                <div class="filter3_2">
+                <div class="filter3_3">
+                    <span>Brand</span>
+                </div>
+            </div>
+            <div id = "brand_filter" ></div>
+            </section>
+            
+    <section class="filter3_1">
+                <div class="filter3_2">
+                <div class="filter3_3">
+                    <span>Colors</span>
+                </div>
+            </div>
+            <div id = "color_filter" ></div>
+            </section>
+      </div>
+
+    <!-- List -->
+    <div id = "list" class="card" style="float:left;height: 1200px; width: 1000px;margin-right:10px;margin-top: 10px ;">
+    <div class="container">
+        <div class= "_3UEiDE">
+        <div class="_1joEet">
+        <div class="_1HEvv0">
+            <a class="_1KHd47" href="/flipkart/Homepage.html">Home</a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_2XP0B_">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_24NaUy"></path>
+            </svg>
+        </div>
+        <div class="_1HEvv0">
+            <a id ="subcategory"></a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_2XP0B_">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_24NaUy"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="_3ywJNQ">
+    <span class="_3YmFT8">Sort By</span>
+    <label class="_1xHtJz" id="popularity">Popularity</label>
+    <label class="_1xHtJz" id="price_low_to_high">Price -- Low to High</label>
+    <label class="_1xHtJz" id="price_high_to_low">Price -- High to Low</label>
+    <label class="_1xHtJz" id="newest_first">Newest First</label>
+    </div>
+    </div>
+    </div>
+    
+    <!-- Displaying single item-->
+    <div class="bhgxx2 col-12-12">
+ <div class="_3O0U0u _288RSE">
+            <div class="row" id="single_item" style="width: 100%;">
+             </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+         
+
+<script src="assets/js/itemslist_actions.js"></script>
+</body>
+</html>
