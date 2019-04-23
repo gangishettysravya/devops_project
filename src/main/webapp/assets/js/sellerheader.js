@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
 	$("#warning_email_new").hide();
 	$("#warning_phone_new").hide();
 	$("#registerNow").click(function(event){
-		window.location = "http://localhost:8080/flipkart/sellerRegistration.html";
+		window.location = "sellerRegistration.html";
 	});
 	$("#login_btn").click(function(event){
 		var email = $("#email").val();
@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 		$.ajax({
 			type:'POST',
 			contentType : 'application/json',
-			url: "http://localhost:8080/flipkart/webapi/user/authenticateSellerEmail",
+			url: "webapi/user/authenticateSellerEmail",
 			data : userData,
 			success : function(user){
 				if($.isEmptyObject(user))
@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 				else
 				{
 					setCookie("seller_data",JSON.stringify(user), 30);
-					window.location.href = "http://localhost:8080/flipkart/SellerPage.html?nav_ref=home";
+					window.location.href = "SellerPage.html?nav_ref=home";
 					
 				}
 

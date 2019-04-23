@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
             console.log(seller_data.id);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/getsellerbalance/"+seller_data.id,
+            url: "webapi/payment/getsellerbalance/"+seller_data.id,
             type: "GET",
             success: function(data) {
                     var balance=data;
@@ -51,7 +51,7 @@ jQuery(document).ready(function($){
             setCookie("seller_data", JSON.stringify(seller_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editsellerdetails/"+"name",
+            url: "webapi/user/editsellerdetails/"+"name",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -89,7 +89,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(seller_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editsellerdetails/"+"email",
+            url: "webapi/user/editsellerdetails/"+"email",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -127,7 +127,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(seller_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editsellerdetails/"+"phone_no",
+            url: "webapi/user/editsellerdetails/"+"phone_no",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -165,7 +165,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(seller_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editsellerdetails/"+"address",
+            url: "webapi/user/editsellerdetails/"+"address",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -203,7 +203,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(seller_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/editsellerbalance",
+            url: "webapi/payment/editsellerbalance",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',

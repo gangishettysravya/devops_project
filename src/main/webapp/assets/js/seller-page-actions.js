@@ -120,7 +120,7 @@ jQuery(document).ready(function($){
 	function getCategoryList(){
     	
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getAllCategoryList",
+			url:"webapi/category/getAllCategoryList",
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -183,7 +183,7 @@ jQuery(document).ready(function($){
 	function getBrandList(sub_category_id){
     	
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getAllBrandsForASubCategory/"+sub_category_id,
+			url:"webapi/category/getAllBrandsForASubCategory/"+sub_category_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -221,7 +221,7 @@ jQuery(document).ready(function($){
 	function getColorList(sub_category_id){
     	
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getAllColorsForASubCategory/"+sub_category_id,
+			url:"webapi/category/getAllColorsForASubCategory/"+sub_category_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -299,7 +299,7 @@ jQuery(document).ready(function($){
 	function getFixedAttributeList(subcategory_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/items/getFixedAttributeListBySubcatId/"+subcategory_id,
+			url:"webapi/items/getFixedAttributeListBySubcatId/"+subcategory_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -406,7 +406,7 @@ jQuery(document).ready(function($){
 	function getSubCategoryList(category){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getSubCategoryList/"+category,
+			url:"webapi/category/getSubCategoryList/"+category,
 			type:"POST",
 			cache:false,
 			contentType:false,
@@ -462,7 +462,7 @@ jQuery(document).ready(function($){
 		    console.log($("#itemCategory").val());
 		    
 			$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/seller/addItem",
+				url:"webapi/seller/addItem",
 				type:"POST",
 				data: JSON.stringify(itemObject),
 				contentType: 'application/json',
@@ -505,7 +505,7 @@ jQuery(document).ready(function($){
 			formData.append("img_num",img_num);
 				    
 			$.ajax({
-					url:"http://localhost:8080/flipkart/webapi/seller/addItemImage",
+					url:"webapi/seller/addItemImage",
 					type:"POST",
 					data: formData,
 					cache:false,
@@ -557,7 +557,7 @@ jQuery(document).ready(function($){
 		if(keyValuePairs.length>0){
 		
 			$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/seller/addItemDetails",
+				url:"webapi/seller/addItemDetails",
 				type:"POST",
 				data: JSON.stringify(keyValuePairs),
 				contentType: 'application/json',
@@ -688,7 +688,7 @@ jQuery(document).ready(function($){
 	function getAllSellerItems(sellerId){
 		
 		$.ajax({
-			url: "http://localhost:8080/flipkart/webapi/items/getAllItemsBySellerId/" + sellerId,
+			url: "webapi/items/getAllItemsBySellerId/" + sellerId,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -901,7 +901,7 @@ jQuery(document).ready(function($){
 	function getActiveDealsOfItem(item_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/deal/getDealsOfItem/"+item_id,
+			url:"webapi/deal/getDealsOfItem/"+item_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -959,7 +959,7 @@ jQuery(document).ready(function($){
 		
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/deal/removeDealItem",
+			url:"webapi/deal/removeDealItem",
 			type:"POST",
 			data: JSON.stringify(dealItem),
 			contentType: 'application/json',
@@ -1043,7 +1043,7 @@ jQuery(document).ready(function($){
 	function addItemToDeals(dealItems){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/deal/addItemToDeals",
+			url:"webapi/deal/addItemToDeals",
 			type:"POST",
 			data: JSON.stringify(dealItems),
 			contentType: 'application/json',
@@ -1065,7 +1065,7 @@ jQuery(document).ready(function($){
 	function getExtraDealsOfItem(item_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/deal/getDealsNotAddedToItem/"+item_id,
+			url:"webapi/deal/getDealsNotAddedToItem/"+item_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -1164,7 +1164,7 @@ jQuery(document).ready(function($){
 				{
 				type : 'POST',
 				contentType : 'application/json',
-				url : "http://localhost:8080/flipkart/webapi/items/updateQuantity",
+				url : "webapi/items/updateQuantity",
 				data : JSON.stringify(item),
 				success : function(response){
 					if(response=="success")
@@ -1193,7 +1193,7 @@ jQuery(document).ready(function($){
 	function removeItem(item_id){
 		
 		$.ajax({
-			url: "http://localhost:8080/flipkart/webapi/items/delete/" + item_id,
+			url: "webapi/items/delete/" + item_id,
 			type:"POST",
 			cache:false,
 			contentType:false,
@@ -1222,7 +1222,7 @@ jQuery(document).ready(function($){
 	function getSellerOrders(seller_id){
 		
 		$.ajax({
-			url: "http://localhost:8080/flipkart/webapi/order/getSellerOrders/" + seller_id,
+			url: "webapi/order/getSellerOrders/" + seller_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -1342,7 +1342,7 @@ jQuery(document).ready(function($){
 		var order_id = $(this).parent('div').parent('div').parent('div').parent('div').parent('div').attr('id');
 		
 		$.ajax({
-			url: "http://localhost:8080/flipkart/webapi/order/shipOrder/" + order_id,
+			url: "webapi/order/shipOrder/" + order_id,
 			type:"POST",
 			cache:false,
 			contentType:false,
@@ -1370,7 +1370,7 @@ jQuery(document).ready(function($){
 	$('body').on("click",'#cancelOrder',function(){
 		var order_id = $(this).parent('div').parent('div').parent('div').parent('div').parent('div').attr('id');
 		$.ajax({
-			url: "http://localhost:8080/flipkart/webapi/order/cancelOrder/" + order_id,
+			url: "webapi/order/cancelOrder/" + order_id,
 			type:"POST",
 			cache:false,
 			contentType:false,

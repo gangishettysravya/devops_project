@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
     getCategoryList("#itemCategoryFixedAttribute");
 
     $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/getflipkartbalance",
+            url: "webapi/payment/getflipkartbalance",
             type: "GET",
             success: function(data) {
                     var balance=data;
@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
     console.log($("#categoryname").val());
         
     $.ajax({
-        url: "http://localhost:8080/flipkart/webapi/category/addCategory",
+        url: "webapi/category/addCategory",
         data: JSON.stringify(category),
         type: "POST",
         contentType:'application/json',
@@ -84,7 +84,7 @@ jQuery(document).ready(function($){
         console.log($("#flipkartbalance").val());
             
         $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/editflipkartbalance",
+            url: "webapi/payment/editflipkartbalance",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -161,7 +161,7 @@ jQuery(document).ready(function($){
 	function getFixedAttributeList(subcategory_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/items/getFixedAttributeListBySubcatId/"+subcategory_id,
+			url:"webapi/items/getFixedAttributeListBySubcatId/"+subcategory_id,
 			type:"GET",
 			cache:false,
 			contentType:false,
@@ -199,7 +199,7 @@ jQuery(document).ready(function($){
 
     function getCategoryList(cat_list_id){    	
 			$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/category/getAllCategoryList",
+				url:"webapi/category/getAllCategoryList",
 				type:"GET",
 				cache:false,
 				contentType:false,
@@ -227,7 +227,7 @@ jQuery(document).ready(function($){
 	function getSubCategoryList(category,dropdown_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getSubCategoryList/"+category,
+			url:"webapi/category/getSubCategoryList/"+category,
 			type:"POST",
 			cache:false,
 			contentType:false,
@@ -256,7 +256,7 @@ jQuery(document).ready(function($){
             name: subcategoryname,
         };
         $.ajax({
-        url: "http://localhost:8080/flipkart/webapi/category/addsubCategory",
+        url: "webapi/category/addsubCategory",
         data: JSON.stringify(subcategory),
         type: "POST",
         contentType:'application/json',
@@ -279,7 +279,7 @@ jQuery(document).ready(function($){
             brand: brandname,
         };
         $.ajax({
-        url: "http://localhost:8080/flipkart/webapi/category/addBrand",
+        url: "webapi/category/addBrand",
         data: JSON.stringify(brand),
         type: "POST",
         contentType:'application/json',
@@ -305,7 +305,7 @@ jQuery(document).ready(function($){
         };
         
         $.ajax({
-        url: "http://localhost:8080/flipkart/webapi/items/addFixedAttributeForSubCategory",
+        url: "webapi/items/addFixedAttributeForSubCategory",
         data: JSON.stringify(attribute),
         type: "POST",
         contentType:'application/json',

@@ -52,7 +52,7 @@ $(document).ready(function () {
 		$("#LISTITEMCATEGORY"+cat_id).append(ul);
 
 		for (var i = 0; i < table.length; i++) {
-			url = "http://localhost:8080/flipkart/itemslist.html?subcat_id="+table[i].subcategory_id;
+			url = "itemslist.html?subcat_id="+table[i].subcategory_id;
 			var addition="<li class='litem' id='LISTITEMSUBCATEGORY"+table[i].subcategory_id+"'> <button  class='subcatblock'  id= '"+table[i].category_id+"_"+table[i].subcategory_id+"'> <a href="+url+" >"+table[i].name+"</a></button></li>";
 //			alert(addition);
 			$("#LISTITEMCATEGORY"+cat_id).append(addition);
@@ -64,7 +64,7 @@ $(document).ready(function () {
 	function getCategoryList(){
     	
 			$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/category/getAllCategoryList",
+				url:"webapi/category/getAllCategoryList",
 				type:"GET",
 				cache:false,
 				contentType:false,
@@ -95,7 +95,7 @@ $(document).ready(function () {
 	function getSubCategoryList(cat_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getSubCategoryList/"+cat_id,
+			url:"webapi/category/getSubCategoryList/"+cat_id,
 			type:"POST",
 			cache:false,
 			contentType:false,

@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
 	 function getCartItems(buyerID)
 	 {
 		 $.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/cart/getItemsByBuyerId/"+buyer_id,
+			 url:"webapi/cart/getItemsByBuyerId/"+buyer_id,
 			 type : 'POST',
 			 cache : false,
 			 contentType : false,
@@ -64,7 +64,7 @@ jQuery(document).ready(function($){
 	 }
 	 function setSeller(seller_id,itemInfo,item,quantity){
 		 $.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/user/getSellerById/"+seller_id,
+			 url:"webapi/user/getSellerById/"+seller_id,
 			 type : 'POST',
 			 cache : false,
 			 contentType : false,
@@ -103,7 +103,7 @@ jQuery(document).ready(function($){
 	 }
 	 function setItemData(item_id,itemInfo,quantity){
 		 $.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/items/getItemByItemId/"+item_id,
+			 url:"webapi/items/getItemByItemId/"+item_id,
 			 type : 'POST',
 			 cache : false,
 			 contentType : false,
@@ -123,7 +123,7 @@ jQuery(document).ready(function($){
 	
 	 function setImage(item_id,itemInfo,quantity){
 		 $.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/items/getItemImagesByItemId/"+item_id,
+			 url:"webapi/items/getItemImagesByItemId/"+item_id,
 			 type : 'POST',
 			 cache : false,
 			 contentType : false,
@@ -166,7 +166,7 @@ jQuery(document).ready(function($){
 			 "item_id":item_id,
 			});
 		 $.ajax({
-				 url:"http://localhost:8080/flipkart/webapi/cart/removeItem",
+				 url:"webapi/cart/removeItem",
 				 type : 'POST',
 				 contentType : "application/json",
 				 data:item_data,
@@ -201,7 +201,7 @@ jQuery(document).ready(function($){
 		if(sign==1)
 		{
 			$.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/items/getItemByItemId/"+item_id,
+			 url:"webapi/items/getItemByItemId/"+item_id,
 			 type : 'POST',
 			 cache : false,
 			 contentType : false,
@@ -217,7 +217,7 @@ jQuery(document).ready(function($){
 							 "quantity":quantity+1
 							});
 						 $.ajax({
-							url:"http://localhost:8080/flipkart/webapi/cart/updateQuantityInCart",
+							url:"webapi/cart/updateQuantityInCart",
 							type : 'POST',	
 							contentType : "application/json",
 							data:item_data,
@@ -252,7 +252,7 @@ jQuery(document).ready(function($){
 				 "quantity":quantity
 				});
 				$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/cart/updateQuantityInCart",
+				url:"webapi/cart/updateQuantityInCart",
 				type : 'POST',	
 				contentType : "application/json",
 				data:item_data,

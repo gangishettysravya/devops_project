@@ -38,7 +38,7 @@ $(document).ready(function () {
 	
 	function fromBackend() {
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/items/getReport",
+			url:"webapi/items/getReport",
 			type:"POST",
 			cache:false,
 			contentType:false,
@@ -86,10 +86,10 @@ $(document).ready(function () {
 //		alert(price_range);
 //		alert(url_api);
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/items/"+url_api,
+			url:"webapi/items/"+url_api,
 			data: JSON.stringify(price_range),
-//			url:"http://localhost:8080/flipkart/webapi/items/getByPrice",
-//			url:"http://localhost:8080/flipkart/webapi/items/getReport",
+//			url:"webapi/items/getByPrice",
+//			url:"webapi/items/getReport",
 			type:"POST",
 			dataType: "json",
 			contentType: "application/json",

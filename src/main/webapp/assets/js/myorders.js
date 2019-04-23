@@ -17,11 +17,11 @@ jQuery(document).ready(function($){
 	console.log(buyer_id);
 	
 	$("#logo").click(function(){
-		$(location).attr('href', "http://localhost:8080/flipkart/Homepage.html");
+		$(location).attr('href', "Homepage.html");
 	});
 	
 	//Initial page setting
-	var url="http://localhost:8080/flipkart/webapi/order/getOrdersByBuyerID/"+buyer_id;
+	var url="webapi/order/getOrdersByBuyerID/"+buyer_id;
 	$.ajax({
 		type : 'POST',
 		cache : false,
@@ -140,7 +140,7 @@ jQuery(document).ready(function($){
 	
 	function onClickDelivered(ord_id){
 		$("#order_delivered_"+ord_id).click(function(){
-			var url="http://localhost:8080/flipkart/webapi/order/updateDelivered/"+ord_id;
+			var url="webapi/order/updateDelivered/"+ord_id;
 			$.ajax({
 				type : 'POST',
 				contentType : 'application/json',
@@ -273,7 +273,7 @@ jQuery(document).ready(function($){
 			review["review"] = $('#review_'+ord_id).val();
 			console.log(review);
 			
-			var url="http://localhost:8080/flipkart/webapi/reviews/";
+			var url="webapi/reviews/";
 			if(review.id!=undefined){
 				url+="updateReview";
 			}

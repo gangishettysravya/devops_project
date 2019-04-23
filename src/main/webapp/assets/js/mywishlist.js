@@ -10,11 +10,11 @@ jQuery(document).ready(function($){
 	console.log(buyer_id);
 	
 	$("#logo").click(function(){
-		$(location).attr('href', "http://localhost:8080/flipkart/Homepage.html");
+		$(location).attr('href', "Homepage.html");
 	});
 	
 	//Initial page setting
-	var url="http://localhost:8080/flipkart/webapi/wishlist/getWishlistByBuyerID/"+buyer_id;
+	var url="webapi/wishlist/getWishlistByBuyerID/"+buyer_id;
 	$.ajax({
 		type : 'GET',
 		cache : false,
@@ -96,7 +96,7 @@ jQuery(document).ready(function($){
 
 	function onDelete(id){
 		$('body').on("click", "#delete_"+id, function(){
-			var url="http://localhost:8080/flipkart/webapi/wishlist/deleteWishlistItemByID/"+id;
+			var url="webapi/wishlist/deleteWishlistItemByID/"+id;
 			$.ajax({
 				type : 'POST',
 				cache : false,

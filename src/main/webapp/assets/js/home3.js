@@ -47,7 +47,7 @@ $(document).ready(function(){
 		var str="<div  class='classDIVCATEGORY' id='idDIVCATEGORY" +cat_id+"'>";
         
 		for (var i = 0; i < table.length; i++) {
-            url = "http://localhost:8080/flipkart/itemslist.html?subcat_id="+table[i].subcategory_id;
+            url = "itemslist.html?subcat_id="+table[i].subcategory_id;
 			var addition=" <a class='classR2aDIVCATEGORY' id='idDIVCATEGORY."+table[i].category_id+"."+table[i].subcategory_id+"'href = "+url+" style='font-size:12px !important ;'>"+table[i].name+"</a> ";
 			str+=addition;
 			getallitems(table[i].subcategory_id);
@@ -71,7 +71,7 @@ $(document).ready(function(){
 		
 		var str="";
 		var width=$(window).width();
-		str+='<div align ="left" class="_1GRhLX _3JslKL"> <div class="_1dPkhG"> <div> <h2 class="puxlXr"><strong>'+subcat_name+'</strong> </h2> <div class="_2Umlwf"> <a class="_2AkmmA _1eFTEo" href="http://localhost:8080/flipkart/itemslist.html?subcat_id='+subcatid+'">view all</a> </div> </div> </div> <div class="_2QUpwp required-tracking"><div class="_3BEcOp"><div class="EstLIe" ><div id="idList_'+subcatid+'" class="_2NTrR2" style="transform: translateX(0px);" >'	//'+(width-(N-1)*195)+'
+		str+='<div align ="left" class="_1GRhLX _3JslKL"> <div class="_1dPkhG"> <div> <h2 class="puxlXr"><strong>'+subcat_name+'</strong> </h2> <div class="_2Umlwf"> <a class="_2AkmmA _1eFTEo" href="itemslist.html?subcat_id='+subcatid+'">view all</a> </div> </div> </div> <div class="_2QUpwp required-tracking"><div class="_3BEcOp"><div class="EstLIe" ><div id="idList_'+subcatid+'" class="_2NTrR2" style="transform: translateX(0px);" >'	//'+(width-(N-1)*195)+'
 
 		for(var i=1;i<N;i++){
 			var itemid = data[i].itemid;
@@ -110,7 +110,7 @@ $(document).ready(function(){
 	function getallitems(subcatid){
         console.log(subcatid);
             $.ajax({
-			    url:"http://localhost:8080/flipkart/webapi/items/getItemsBySubcategoryId/"+subcatid,
+			    url:"webapi/items/getItemsBySubcategoryId/"+subcatid,
 			    type:"POST",
 			    cache:false,
 			    contentType:false,
@@ -134,7 +134,7 @@ $(document).ready(function(){
 	function getCategoryList(){
     	
 			$.ajax({
-				url:"http://localhost:8080/flipkart/webapi/category/getAllCategoryList",
+				url:"webapi/category/getAllCategoryList",
 				type:"GET",
 				cache:false,
 				contentType:false,
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	function getSubCategoryList(cat_id){
 		
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/category/getSubCategoryList/"+cat_id,
+			url:"webapi/category/getSubCategoryList/"+cat_id,
 			type:"POST",
 			cache:false,
 			contentType:false,

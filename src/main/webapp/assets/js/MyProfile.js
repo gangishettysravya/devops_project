@@ -15,7 +15,7 @@ jQuery(document).ready(function($){
             //$("#balance").val(buyer_data.balance);
             
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/getbuyerbalance/"+buyer_data.id,
+            url: "webapi/payment/getbuyerbalance/"+buyer_data.id,
             type: "GET",
             success: function(data) {
                     var balance=data;
@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(buyer_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editbuyerdetails/"+"name",
+            url: "webapi/user/editbuyerdetails/"+"name",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -88,7 +88,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(buyer_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editbuyerdetails/"+"email",
+            url: "webapi/user/editbuyerdetails/"+"email",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -126,7 +126,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(buyer_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/user/editbuyerdetails/"+"phone_no",
+            url: "webapi/user/editbuyerdetails/"+"phone_no",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',
@@ -165,7 +165,7 @@ jQuery(document).ready(function($){
             setCookie("Buyer_data", JSON.stringify(buyer_data), 1);
 
             $.ajax({
-            url: "http://localhost:8080/flipkart/webapi/payment/editbuyerbalance",
+            url: "webapi/payment/editbuyerbalance",
             data: JSON.stringify(update),
             type: "POST",
             contentType:'application/json',

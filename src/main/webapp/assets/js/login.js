@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 		$.ajax({
 			type:'POST',
 			contentType : 'application/json',
-			url: "http://localhost:8080/flipkart/webapi/user/authenticateBuyerEmail",
+			url: "webapi/user/authenticateBuyerEmail",
 			data : userData,
 			success : render
 			
@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
 		{
 		type : 'POST',
 		contentType : 'application/json',
-		url : "http://localhost:8080/flipkart/webapi/user/createBuyer",
+		url : "webapi/user/createBuyer",
 		data : user_data,
 		success : function(response){
 			if(response==0)
@@ -168,7 +168,7 @@ jQuery(document).ready(function($) {
 		{
 		type : 'POST',
 		contentType : 'application/json',
-		url : "http://localhost:8080/flipkart/webapi/user/createBuyerAccount",
+		url : "webapi/user/createBuyerAccount",
 		data : user_data,
 		success : function(response){
 			if(response==0 || response==-1)

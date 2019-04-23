@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
     function getallitems(){
         subcat_id = $.urlParam("subcat_id");
             $.ajax({
-			    url:"http://localhost:8080/flipkart/webapi/items/getAllItemsBySubcategoryId/"+subcat_id,
+			    url:"webapi/items/getAllItemsBySubcategoryId/"+subcat_id,
 			    type:"POST",
 			    cache:false,
 			    contentType:false,
@@ -46,7 +46,7 @@ jQuery(document).ready(function($){
     	subcat_id = $.urlParam("subcat_id");
     	console.log(subcat_id)
         $.ajax({
-		    url:"http://localhost:8080/flipkart/webapi/category/getAllBrandsForASubCategory/"+subcat_id,
+		    url:"webapi/category/getAllBrandsForASubCategory/"+subcat_id,
 		    type:"GET",
 		    cache:false,
 		    contentType:false,
@@ -88,7 +88,7 @@ jQuery(document).ready(function($){
     	subcat_id = $.urlParam("subcat_id");
     	console.log(subcat_id)
         $.ajax({
-		    url:"http://localhost:8080/flipkart/webapi/category/getAllColorsForASubCategory/"+subcat_id,
+		    url:"webapi/category/getAllColorsForASubCategory/"+subcat_id,
 		    type:"GET",
 		    cache:false,
 		    contentType:"application/json",

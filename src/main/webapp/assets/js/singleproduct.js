@@ -52,7 +52,7 @@ jQuery(document).ready(function($){
 			 "quantity":1
 			});
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/cart/checkItemInCart",
+			url:"webapi/cart/checkItemInCart",
 			type : 'POST',	
 			contentType : "application/json",
 			data:item_data,
@@ -73,7 +73,7 @@ jQuery(document).ready(function($){
 						 "quantity":1
 						});
 		$.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/cart/addItemToCart",
+			 url:"webapi/cart/addItemToCart",
 			 type : 'POST',
 			 contentType : "application/json",
 			 data:item_data,
@@ -115,7 +115,7 @@ jQuery(document).ready(function($){
 			 "item_id":itemId,
 			});
 		$.ajax({
-			url:"http://localhost:8080/flipkart/webapi/wishlist/checkItemInWishlist",
+			url:"webapi/wishlist/checkItemInWishlist",
 			type : 'POST',	
 			contentType : "application/json",
 			data:item_data,
@@ -135,7 +135,7 @@ jQuery(document).ready(function($){
 						 "item_id":itemId,
 						});
 		$.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/wishlist/removeFromWishlist",
+			 url:"webapi/wishlist/removeFromWishlist",
 			 type : 'POST',
 			 contentType : "application/json",
 			 data:item_data,
@@ -165,7 +165,7 @@ jQuery(document).ready(function($){
 						 "item_id":itemId,
 						});
 		$.ajax({
-			 url:"http://localhost:8080/flipkart/webapi/wishlist/addItemToWishlist",
+			 url:"webapi/wishlist/addItemToWishlist",
 			 type : 'POST',
 			 contentType : "application/json",
 			 data:item_data,
@@ -190,11 +190,11 @@ jQuery(document).ready(function($){
 	}
 	
 	$("body").on( "click", "#logo",function(){
-		$(location).attr('href', "http://localhost:8080/flipkart/Homepage.html");
+		$(location).attr('href', "Homepage.html");
 	});
 		
 	//Initial page setting
-	var url="http://localhost:8080/flipkart/webapi/items/getItemByItemId/"+item_id;
+	var url="webapi/items/getItemByItemId/"+item_id;
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -252,7 +252,7 @@ jQuery(document).ready(function($){
 	
 	//Set Sub-category in the path
 	function setSubCategory(id){
-		var url="http://localhost:8080/flipkart/webapi/category/getSubCategoryById/"+id;
+		var url="webapi/category/getSubCategoryById/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -262,7 +262,7 @@ jQuery(document).ready(function($){
 				if(!$.isEmptyObject(subcat)){
 					$("#path_subcat").text(subcat.name);
 					//Change url
-					$("#path_subcat").attr("href", "http://localhost:8080/flipkart/itemslist.html?subcat_id="+subcat.subcategory_id);
+					$("#path_subcat").attr("href", "itemslist.html?subcat_id="+subcat.subcategory_id);
 					setCategory(subcat.category_id);
 				}
 				else{
@@ -277,7 +277,7 @@ jQuery(document).ready(function($){
 	
 	//Set Category in the path
 	function setCategory(id){
-		var url="http://localhost:8080/flipkart/webapi/category/getCategoryById/"+id;
+		var url="webapi/category/getCategoryById/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -287,7 +287,7 @@ jQuery(document).ready(function($){
 				if(!$.isEmptyObject(cat)){
 					$("#path_cat").text(cat.name);
 					//Change url
-					$("#path_cat").attr("href", "http://localhost:8080/flipkart/UnderConstruction.html?="+cat.category_id);
+					$("#path_cat").attr("href", "UnderConstruction.html?="+cat.category_id);
 				}
 				else{
 					alert("Problem occured!!");
@@ -301,7 +301,7 @@ jQuery(document).ready(function($){
 	
 	//Set Item images
 	function setItemImages(item_id){
-		var url="http://localhost:8080/flipkart/webapi/items/getItemImagesByItemId/"+item_id;
+		var url="webapi/items/getItemImagesByItemId/"+item_id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -344,7 +344,7 @@ jQuery(document).ready(function($){
 	
 	//Item Rating
 	function setRating(id){
-		var url="http://localhost:8080/flipkart/webapi/reviews/getItemRating/"+id;
+		var url="webapi/reviews/getItemRating/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -364,7 +364,7 @@ jQuery(document).ready(function($){
 	
 	//No. of item ratings
 	function setTotalRatings(id){
-		var url="http://localhost:8080/flipkart/webapi/reviews/totalItemRatings/"+id;
+		var url="webapi/reviews/totalItemRatings/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -380,7 +380,7 @@ jQuery(document).ready(function($){
 	
 	//No. of item ratings
 	function setTotalReviews(id){
-		var url="http://localhost:8080/flipkart/webapi/reviews/totalItemReviews/"+id;
+		var url="webapi/reviews/totalItemReviews/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -397,7 +397,7 @@ jQuery(document).ready(function($){
 	
 	//Deals on the item
 	function setDeals(item_id){
-		var url="http://localhost:8080/flipkart/webapi/deal/getDealsOfItem/"+item_id;
+		var url="webapi/deal/getDealsOfItem/"+item_id;
 		$.ajax({
 			type : 'GET',
 			contentType : 'application/json',
@@ -428,7 +428,7 @@ jQuery(document).ready(function($){
 	
 	//Item Description
 	function setDescription(item_id){
-		var url="http://localhost:8080/flipkart/webapi/items/getItemDetailsByItemId/"+item_id;
+		var url="webapi/items/getItemDetailsByItemId/"+item_id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -454,7 +454,7 @@ jQuery(document).ready(function($){
 	
 	//Set the Seller Info
 	function setSellerInfo(id){
-		var url="http://localhost:8080/flipkart/webapi/user/getSellerById/"+id;
+		var url="webapi/user/getSellerById/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -476,7 +476,7 @@ jQuery(document).ready(function($){
 	
 	//Set seller's rating
 	function setSellerRating(id){
-		var url="http://localhost:8080/flipkart/webapi/reviews/getSellerRating/"+id;
+		var url="webapi/reviews/getSellerRating/"+id;
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -515,7 +515,7 @@ jQuery(document).ready(function($){
 	//buy now
 	function onClickBuy(item_id){
 		$('#buy_now').click(function() {
-			var url = "http://localhost:8080/flipkart/BuyingPortal.html?itemid=" + item_id;
+			var url = "BuyingPortal.html?itemid=" + item_id;
 			$(location).attr('href', url);
 		});
 	}
@@ -525,7 +525,7 @@ jQuery(document).ready(function($){
 		$('#go_to_cart').click(function() {
 			//TODO
 			alert("Under construction!!");
-			//$(location).attr('href', 'http://localhost:8080/flipkart/Cart.html');
+			//$(location).attr('href', 'Cart.html');
 		});
 	}
 });
