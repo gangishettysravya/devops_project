@@ -7,7 +7,7 @@ services:
          - /opt/data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: 1589
+       MYSQL_ROOT_PASSWORD: 1234
        MYSQL_DATABASE: flipkartdb
        MYSQL_USER: root
        
