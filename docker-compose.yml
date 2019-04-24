@@ -3,6 +3,8 @@ version: '3.3'
 services:
    db:
      image: mysql
+     volumes:
+         - /opt/data:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: 1589
