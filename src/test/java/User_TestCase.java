@@ -23,7 +23,7 @@ public class User_TestCase {
 		User_Services user_service = new User_Services();
 		Buyer return_buyer = user_service.getUserByEmail(buyer);
 		System.out.println(return_buyer.getPhone_no());
-		assertEquals(true_buyer.getDob(),user_service.getUserByEmail(buyer).getDob());
+		assertEquals(true_buyer.getPhone_no(),user_service.getUserByEmail(buyer).getPhone_no());
 		//fail("Not yet implemented");
 	}
 
