@@ -3,7 +3,6 @@ version: '3'
 services:
    db:
      image: mysql
-     command: --max_allowed_packet=100000
      volumes:
          - /opt/data:/var/lib/mysql
      restart: always
