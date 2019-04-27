@@ -12,7 +12,6 @@ public class User_TestCase {
 		Buyer true_buyer = new Buyer();
 		true_buyer.setEmail("G.Sravya@iiitb.org");
 		true_buyer.setId(2);
-		true_buyer.setDob("1997-06-11");
 		true_buyer.setGender("F");
 		true_buyer.setName("Sravya Gangishetty");
 		true_buyer.setPassword("12345");
