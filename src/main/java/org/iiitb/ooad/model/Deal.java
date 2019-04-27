@@ -9,6 +9,10 @@ public class Deal {
 	private String date_ended;
 	private String deal_img;
 	
+	public Deal(){
+		
+	}
+	
 	public int getDeal_id() {
 		return deal_id;
 	}
@@ -50,5 +54,13 @@ public class Deal {
 	}
 	public void setDeal_img(String deal_img) {
 		this.deal_img = deal_img;
+	}
+	public Deal(String name,String description, float deal_discount, String date_added, String date_ended, String deal_img) {
+		this.date_added=date_added;
+		this.date_ended=date_ended;
+		this.deal_discount = deal_discount;
+		this.deal_img = deal_img;
+		this.description=description;
+		this.name=name;
 	}
 }
