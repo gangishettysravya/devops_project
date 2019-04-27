@@ -32,7 +32,7 @@ import org.iiitb.ooad.dao.SellerDAO;
 @Path("/seller")
 public class SellerServices {
 	
-	private String images_folder = "/usr/local/tomcat/webapps/flipkart-prototype/images/catalog";
+	private String images_folder = "/usr/local/tomcat/webapps/flipkart-prototype/images/catalog/";
 	
 	@Path("/addItem")
 	@POST
