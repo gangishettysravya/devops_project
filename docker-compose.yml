@@ -5,6 +5,7 @@ services:
      image: mysql
      volumes:
          - /opt/data:/var/lib/mysql
+     command: --max_allowed_packet=100000
      restart: always
      hostname: db
      environment:
