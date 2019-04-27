@@ -3,9 +3,9 @@ version: '3.0'
 services:
    db:
      image: mysql
+     command: --max_allowed_packet=100000
      volumes:
          - /opt/data:/var/lib/mysql
-     command: --max_allowed_packet=100000
      restart: always
      hostname: db
      environment:
