@@ -41,88 +41,9 @@ import org.json.JSONObject;
 @Path("/deal")
 public class DealServices {
 	
-	private String deals_folder = "/usr/local/tomcat/webapps/flipkart-prototype/images/deal_images/";
+//	private String deals_folder = "/home/sowmya/Desktop/workspace/flipkart_proto/src/main/webapp/images/deal_images/";
+	private String deals_folder = "/home/sravya/git/flipkart_proto/src/main/webapp/images/deal_images/";
 	
-		@POST
-		@Path("/getAllDeals")
-		@Consumes("application/json")
-		@Produces("application/json")	
-		public String getAllDeals() throws JSONException, ParseException{
-			DealDAO ddao = new DealDAO();
-			
-			List<Deal> allDeals = ddao.getAllValidDeals();
-			JSONArray result = new JSONArray();
-			
-			try {
-				for(int i=0;i<allDeals.size();i++) {
-					JSONObject deal_object = new JSONObject();
-					Deal deal_details=allDeals.get(i);
-					
-					deal_object.append("id", deal_details.getDeal_id());
-					deal_object.append("path", deal_details.getDeal_img());
-					if(deal_details.getName().equals("Birthday Offer")){
-					}
-					else {
-						result.put(deal_object);
-					}
-				}
-				return result.toString();
-			}
-			catch(Exception e) {	
-				e.printStackTrace();
-				return null;
-			}
-			
-		}
-		
-		@POST
-		@Path("/getDealsByBuyerId")
-		@Consumes("application/json")
-		@Produces("application/json")
-		public String getDealsByBuyerId(String buyer_details)  throws JSONException, ParseException{
-			
-//			DealItemDAO didao = new DealItemDAO();
-			DealDAO ddao = new DealDAO();
-			JSONObject details = new JSONObject(buyer_details);
-			int buyer_id = details.getInt("buyer_id");
-			
-			List<Deal> allDeals = ddao.getAllValidDeals();
-			JSONArray result = new JSONArray();
-			
-			try {
-				for(int i=0;i<allDeals.size();i++) {
-					JSONObject deal_object = new JSONObject();
-					Deal deal_details=allDeals.get(i);
-					
-					deal_object.append("id", deal_details.getDeal_id());
-					deal_object.append("path", deal_details.getDeal_img());
-					if(deal_details.getName().equals("Birthday Offer")){
-						BuyerDAO buyer_dao = new BuyerDAO();
-						DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-						LocalDateTime now = LocalDateTime.now();
-						String [] today_datetime = dtf.format(now).split(" ");
-						String today = today_datetime[0];
-						String today_day = today.substring(5,today.length());
-						Buyer buyer = buyer_dao.getUserById(buyer_id);
-						String buyer_dob = buyer.getDob();
-						if(buyer_dob!=null || buyer_dob!="") {
-							if(buyer_dob.substring(5,today.length()).equals(today_day)){
-								result.put(deal_object);
-							}
-						}
-					}
-					else {
-						result.put(deal_object);
-					}
-				}
-				return result.toString();
-			}
-			catch(Exception e) {	
-				e.printStackTrace();
-				return null;
-			}
-		}
-		
 	@Path("/getDealsOfItem/{id}")
 	@GET
 	@Produces("application/json")
@@ -161,7 +82,87 @@ public class DealServices {
 		}
 		return "fail";
 	}
+
+	@POST
+	@Path("/getAllDeals")
+	@Consumes("application/json")
+	@Produces("application/json")	
+	public String getAllDeals() throws JSONException, ParseException{
+		DealDAO ddao = new DealDAO();
+		
+		List<Deal> allDeals = ddao.getAllValidDeals();
+		JSONArray result = new JSONArray();
+		
+		try {
+			for(int i=0;i<allDeals.size();i++) {
+				JSONObject deal_object = new JSONObject();
+				Deal deal_details=allDeals.get(i);
+				
+				deal_object.append("id", deal_details.getDeal_id());
+				deal_object.append("path", deal_details.getDeal_img());
+				if(deal_details.getName().equals("Birthday Offer")){
+				}
+				else {
+					result.put(deal_object);
+				}
+			}
+			return result.toString();
+		}
+		catch(Exception e) {	
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
 	
+	@POST
+	@Path("/getDealsByBuyerId")
+	@Consumes("application/json")
+	@Produces("application/json")
+	public String getDealsByBuyerId(String buyer_details)  throws JSONException, ParseException{
+		
+//		DealItemDAO didao = new DealItemDAO();
+		DealDAO ddao = new DealDAO();
+		JSONObject details = new JSONObject(buyer_details);
+		int buyer_id = details.getInt("buyer_id");
+		
+		List<Deal> allDeals = ddao.getAllValidDeals();
+		JSONArray result = new JSONArray();
+		
+		try {
+			for(int i=0;i<allDeals.size();i++) {
+				JSONObject deal_object = new JSONObject();
+				Deal deal_details=allDeals.get(i);
+				
+				deal_object.append("id", deal_details.getDeal_id());
+				deal_object.append("path", deal_details.getDeal_img());
+				if(deal_details.getName().equals("Birthday Offer")){
+					BuyerDAO buyer_dao = new BuyerDAO();
+					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+					LocalDateTime now = LocalDateTime.now();
+					String [] today_datetime = dtf.format(now).split(" ");
+					String today = today_datetime[0];
+					String today_day = today.substring(5,today.length());
+					Buyer buyer = buyer_dao.getUserById(buyer_id);
+					String buyer_dob = buyer.getDob();
+					if(buyer_dob!=null || buyer_dob!="") {
+						if(buyer_dob.substring(5,today.length()).equals(today_day)){
+							result.put(deal_object);
+						}
+					}
+				}
+				else {
+					result.put(deal_object);
+				}
+			}
+			return result.toString();
+		}
+		catch(Exception e) {	
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	
 	@Path("/getDealsForUser")
 	@POST
@@ -363,6 +364,38 @@ public class DealServices {
 		return "fail";
 		
 	}
+
+	private void writeToFile(InputStream uploadedInputStream, String uploadedFileLocation){
+		try
+            {
+                    OutputStream out = new FileOutputStream(new File(uploadedFileLocation));
+                    int read = 0;
+                    byte[] bytes = new byte[1024];
+
+                    out = new FileOutputStream(new File(uploadedFileLocation));
+                    while ((read = uploadedInputStream.read(bytes)) != -1)
+                    {
+                            out.write(bytes, 0, read);
+                    }
+                    out.flush();
+                    out.close();
+            }catch (IOException e)
+            {
+
+                    e.printStackTrace();
+            }
+
+    }
+	
+	@Path("/getDeal/{deal_id}")
+	@POST
+	@Produces("application/json")
+	public Deal getDeals(@PathParam("deal_id") int deal_id){
+		
+		DealDAO dao = new DealDAO();
+		return dao.getDealDetailsByID(deal_id);
+	}
+	
 	@POST
 	@Path("/getAllItemsByDealId/{id}")
 	@Consumes("application/json")
@@ -419,35 +452,5 @@ public class DealServices {
 		}
 		
 		return "no items";
-	}
-	private void writeToFile(InputStream uploadedInputStream, String uploadedFileLocation){
-		try
-            {
-                    OutputStream out = new FileOutputStream(new File(uploadedFileLocation));
-                    int read = 0;
-                    byte[] bytes = new byte[1024];
-
-                    out = new FileOutputStream(new File(uploadedFileLocation));
-                    while ((read = uploadedInputStream.read(bytes)) != -1)
-                    {
-                            out.write(bytes, 0, read);
-                    }
-                    out.flush();
-                    out.close();
-            }catch (IOException e)
-            {
-
-                    e.printStackTrace();
-            }
-
-    }
-	
-	@Path("/getDeal/{deal_id}")
-	@POST
-	@Produces("application/json")
-	public Deal getDeals(@PathParam("deal_id") int deal_id){
-		
-		DealDAO dao = new DealDAO();
-		return dao.getDealDetailsByID(deal_id);
 	}
 }

@@ -309,8 +309,8 @@ $(document).ready(function(){
 		$.ajax({
 			url:"webapi/deal/getDealsByBuyerId",
 			data: object,
-//			url:"webapi/items/getByPrice",
-//			url:"webapi/items/getReport",
+//			url:"http://localhost:8080/flipkart/webapi/items/getByPrice",
+//			url:"http://localhost:8080/flipkart/webapi/items/getReport",
 			type:"POST",
 			dataType: "json",
 			contentType: "application/json",

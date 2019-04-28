@@ -840,5 +840,9 @@ INSERT INTO `flipkartdb`.`Color` (`color_id`, `color`, `subcategory_id`) VALUES 
 INSERT INTO `flipkartdb`.`Color` (`color_id`, `color`, `subcategory_id`) VALUES (DEFAULT, 'Yellow', 4);
 INSERT INTO `flipkartdb`.`Color` (`color_id`, `color`, `subcategory_id`) VALUES (DEFAULT, 'Black', 4);
 
+insert into Deal values(deal_id,"Clearance Sale","Clearance Sale",50,NOW(),"2020-06-30 12:00:00","images/deal_images/deal3.jpeg");
+insert into Deal values(deal_id,"Buy 1 Get 1","Buy1 and get 1 Free",50,NOW(),"2020-06-30 12:00:00","images/deal_images/deal2.jpeg");
+insert into Deal values(deal_id,"Birthday Offer","Happy Birthday. Here is your offer", 30,NOW(),"2020-06-30 12:00:00","images/deal_images/deal1.jpeg");
+
 COMMIT;
 
