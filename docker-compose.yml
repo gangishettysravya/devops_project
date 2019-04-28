@@ -2,7 +2,7 @@ version: '3'
 
 services:
    db:
-     image: mysql
+     image: gangishettysravya/devops_project: dbimg
      volumes:
          - /opt/data:/var/lib/mysql
      restart: always
@@ -15,7 +15,7 @@ services:
    webapi:
      depends_on:
        - db
-     image: project 
+     image: gangishettysravya/devops_project: webimg 
      hostname: webapi
      ports:
        - "8081:8080"
