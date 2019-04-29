@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 
@@ -19,8 +20,10 @@ WebElement element;
 
 @BeforeClass
 public static void openBrowser(){
+	ChromeOptions ChromeOptions = new ChromeOptions();
+	ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
 	WebDriverManager.getInstance(CHROME).setup();
-	driver = new ChromeDriver();
+	driver = new ChromeDriver(ChromeOptions);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 }
 
