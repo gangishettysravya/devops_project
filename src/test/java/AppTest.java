@@ -9,6 +9,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AppTest {
@@ -17,7 +19,7 @@ WebElement element;
 
 @BeforeClass
 public static void openBrowser(){
-	WebDriverManager.chromedriver().setup();
+	WebDriverManager.getInstance(CHROME).setup();
 	driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 }
