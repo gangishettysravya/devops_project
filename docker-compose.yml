@@ -6,6 +6,8 @@ services:
      volumes:
          - /opt/data:/var/lib/mysql
      restart: always
+     ports:
+       - "3363:3306"
      hostname: db
      environment:
        MYSQL_ROOT_PASSWORD: 1234
