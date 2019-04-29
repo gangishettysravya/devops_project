@@ -21,7 +21,7 @@ WebElement element;
 @BeforeClass
 public static void openBrowser(){
 	ChromeOptions ChromeOptions = new ChromeOptions();
-	ChromeOptions.addArguments("--no-sandbox");
+	ChromeOptions.addArguments('--no-sandbox','--single-process');
 	WebDriverManager.getInstance(CHROME).setup();
 	driver = new ChromeDriver(ChromeOptions);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
